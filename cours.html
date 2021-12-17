@@ -1,0 +1,501 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script><hr>
+<h2>title: 4.0.LimiteSuiteApplication
+created: '2021-12-06T07:11:15.733Z'
+modified: '2021-12-09T15:20:44.719Z'</h2>
+<h1>Limite de Suites Applications</h1>
+<p>[[@toc]]</p>
+<h2>I) Notions utiles</h2>
+<h3>1) A partir d'un certain rang</h3>
+<h4>a) Exemple:</h4>
+<p>$(u_n)$ définie par: pour $n \in \mathbb{N}$, $u_n = u_n = n^2 - 10n +1$.</p>
+<p>étudier le sens de variation de cette suite.
+On pose $f(x) = x^2 - 10x + 1$. On a $u_n = f(n)$.</p>
+<p>Puis $f'(x) = 2x - 10$.</p>
+<pre><code>x     | -oo          5             +oo   |
+-----------------------------------------|
+f'(x) |         -    |    +              | a = 2, a &gt; 0
+f(x)  | décroissan  -24    croissante    |
+</code></pre>
+<p>$f(5) = 5^2 - 10*5 + 1 = 25 - 50 + 1 = -24$.</p>
+<p>f est strictement croissante sur $[5, +\infty[$.</p>
+<p>Donc on dira que $u_n$ est strictement croissante à partir de $n_0 = 5$.</p>
+<p>En effet: Soit $n \in \mathbb{N}$, tel que: $5 \leq n$</p>
+<p>$5 \leq n &lt; n+1 \Rightarrow f(n) &lt; f(n+1)$. car f est strictement croissante sur $[5, +\infty[$.</p>
+<p>Bilan: $5 \leq n$, on a $u_n &lt; u_{n+1}$.</p>
+<h4>b) définition:</h4>
+<p>&quot;à partit d'un certain rang&quot; signifie: qu'il exsiste un entier naturel n~0~ tel que: pour tout $n \in \mathbb{N}$, $n \geq n_0$</p>
+<h3>2) Notion de voisinages.</h3>
+<h4>a) Exemple:</h4>
+<p>$]-r;r[, 0&lt;r$ est un voisinage de 0.</p>
+<pre><code>          -r    0     r
+----------]-----|-----[----------
+
+          0     1     2
+----------]-----|-----[----------
+
+         1-r    1    1+r
+----------]-----|-----[----------
+</code></pre>
+<p>$]1-r; 1+r[, 0&lt;r$ est un voisinage de 1.</p>
+<p>$l \in \R,$ l'intervalle ouvert centré en l, $]l-r; l+r[$ est appelé voisinage de l.</p>
+<pre><code>         l-r    l    l+r
+----------]-----|-----[----------
+            -r    +r
+</code></pre>
+<h2>II) Suites Convergentes: notion de limite</h2>
+<h3>1) définition:</h3>
+<p>Soit $u_n$ une suite de nombres réels et $l \in \R$</p>
+<p><strong>défintion &quot;intuitive&quot;:</strong>
+la suite $u_n$ est converge vers $l$ $\iff$ pour tout voisinage de l, les termes de la suite $u_n$ est contenus dans ce voisinage. à partir d'un certain rang.</p>
+<pre><code>         l-r    l    l+r
+----------]-----|-----[----------
+        u_{n_0+1}  u_n_0            
+</code></pre>
+<p>définition:
+la suite $u_n$ est converge vers $l$ $\iff$ Pour tout $r &gt; 0$, [il existe $n_0 \in \N$, pour  $n \in \N$, $n  \geq u_0 ], u_n \in ]l-r; l+r[$.</p>
+<p>remarque:
+Comment tradiire u_n \in ]l-r; l+r[?</p>
+<pre><code>               u_n        
+----------]-----|-----[----------
+         e-r    e    e+r            
+</code></pre>
+<p>$\iff l-r &lt; u_n l+r$
+$\iff -r &lt; u_n-l &lt; r$
+$\iff     |u_n-l| &lt; r$</p>
+<p>On dit alors que la suite $u_n$ est convergente et sa limite est $l$.</p>
+<p>Notation:</p>
+<p>$\lim\limits_{n -&gt; +\infty}(u_n) = lim(u_n) = l$.</p>
+<h3>2) Propriété:</h3>
+<p>l'unicité de la limite pour une suite.</p>
+<h3>3) Quelques limites de référence:</h3>
+<ul>
+<li>
+<p>$k \in \R$: $(u_n)$ telle que: pour tout $n \in \N$, $u_n = k$.
+on a $\Big[\lim\limits_{n -&gt; +\infty}(u_n) = \lim\limits_{n -&gt; +\infty}(k) = k$.</p>
+</li>
+<li>
+<p>pour $n \in \N$, $u_n = \frac 1 n$.
+on a $\Big[\lim\limits_{n -&gt; +\infty}(u_n) = \lim\limits_{n -&gt; +\infty}(\frac 1 n) = 0$.</p>
+</li>
+<li>
+<p>Soit $q \in \R$, tel que: $0 &lt; q &lt; 1$, pour n \in \N, $u_n = q^n$.
+on a $\Big[\lim\limits_{n -&gt; +\infty}(u_n) = \lim\limits_{n -&gt; +\infty}(q^n) = 0$.</p>
+</li>
+</ul>
+<h3>4) Théorème de la convergence: Monotone:</h3>
+<table>
+<thead>
+<tr>
+<th>(1) toutes suite croissantes majorée est convergente.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(2) toutes suite décroissante minorée est convergente.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Remarque: ce théorème ne détermine pas la limite de la suite.</p>
+<h3>5) Théorème des gendarmes ou d'encadrement:</h3>
+<ul>
+<li>Soit $(u_n), (v_n), (w_n)$ des suites telles que:
+.
+(1) pout tout $n \in \N$, $v_n \leq u_n \leq w_n$.
+(2) $\lim\limits_{n -&gt; +\infty}(v_n) = \lim\limits_{n -&gt; +\infty}(w_n) = l, l\in \R$
+.
+On a alors: $\lim\limits_{n -&gt; +\infty}(u_n) = l$.</li>
+</ul>
+<p>Remarque: on peut remplacer (1) par:
+A partir d'un certain rang, $v_n \leq u_n \leq w_n$ en conservant (2).
+On a la même conclusion.</p>
+<p>Application: Soit $p \in \N$, tel que $p &gt; 2$ et $n \in \N^*$</p>
+<p>(1) On a $n \leq n^p$ (en effet $n^p - n = n(n^{p-1}-1)$ et $n( n^{p-1}-1) \geq 0$)</p>
+<p>on deduit que: $\frac 1 n \geq \frac 1 {n^p}$</p>
+<p>(2) On applique le théorème des gendarmes.</p>
+<p>(a) pour $n \in \N$, $0 \leq \frac 1 {n^p} \leq \frac 1 n$.
+(b) $\lim\limits_{n -&gt; +\infty}(0) = \lim\limits_{n -&gt; +\infty}(\frac 1 n) = 0$.</p>
+<p>On dédudit que: $\lim\limits_{n -&gt; +\infty}(\frac 1 {n^p}) = 0$.</p>
+<p>exemple: $\lim\limits_{n -&gt; +\infty}(\frac 1 {n^2}) = 0,  \lim\limits_{n -&gt; +\infty}(\frac 1 {n^3}) = 0, \dots$</p>
+<h3>6) opérations sur les suites convergentes:</h3>
+<h4>a) Résultat:</h4>
+<p>Soit $u_n$ et $v_n$ telles que:</p>
+<p>$\lim$\limits_{n -&gt; +\infty}(u_n) = l,  \lim\limits_{n -&gt; +\infty}(v_n) = l'$.
+$l et l' étant 2 nombres réels.$</p>
+<p>Soit $a \in \R$ et $b \in \R$</p>
+<ul>
+<li>$\lim\limits_{n -&gt; +\infty}(u_n + v_n) = l + l'$</li>
+<li>$\lim\limits_{n -&gt; +\infty}(u_n - v_n) = l - l'$</li>
+<li>$\lim\limits_{n -&gt; +\infty}(u_n * v_n) = l * l'$</li>
+<li>$\lim\limits_{n -&gt; +\infty}(\cfrac {u_n} {v_n}) = \cfrac l {l'}$, lorsque $l' \neq 0$.</li>
+<li>$\lim\limits_{n -&gt; +\infty}(a u_n + b v_n) = al + bl'$</li>
+</ul>
+<h4>b) Exemples:</h4>
+<p>N°1: $u_n = \frac 3 {n^2} - \frac 5 {n} + 10$ , pour $n \in \N^*$.</p>
+<p>$3<em>0 - 5</em>0 + 10 = 10$ &quot;au brouillon&quot;</p>
+<p>Rédaction:</p>
+<p>$\lim\limits_{n -&gt; +\infty}(1/n^2) = \lim\limits_{n -&gt; +\infty}(\frac 1 {n^2}) = \lim\limits_{n -&gt; +\infty}(\frac 1 n) = 0$ et $\lim\limits_{n -&gt; +\infty}(10) = 10$</p>
+<p>Donc par somme et différence, on obtient:</p>
+<p>$\lim\limits_{n -&gt; +\infty}(u_n) = 3 \times 0 - 5 \times 0 + 10 = 10$ : (u_n) est convergente et $\lim\limits_{n -&gt; +\infty}(u_n) = 10$</p>
+<p>N°2: $u_n = -1400 \times 0,85^n + 2000$</p>
+<p>On a 0 &lt; 0.85 &lt; 1, donc $\lim\limits_{n -&gt; +\infty}(u_n) = 0$
+puis $\lim\limits_{n -&gt; +\infty}(u_n) = -1400 \times 0.85^n + 2000$</p>
+<p>$\lim\limits_{n -&gt; +\infty}(u_n) = 2000$</p>
+<p>N°3: $u_n = \cfrac{3-\cfrac 1 n}{\cfrac 7 n + 5}$</p>
+<p>et $\lim\limits_{n -&gt; +\infty}(3-\cfrac 1 n) = 3 - 0 = 3$
+et $\lim\limits_{n -&gt; +\infty}(\cfrac7 n + 5) = 7*0 + 5 = 5$</p>
+<p>Puis on obtient: $\lim\limits_{n -&gt; +\infty}(u_n) = \cfrac 3 5$</p>
+<p>N°4: $u_n = \cfrac{2 \times 0,5^n - 3}{1+5 \times 0,95^n}$</p>
+<p>$\lim\limits_{n -&gt; +\infty}(2 \times 0,5^n - 3) = 2 \times 0 - 3$ car 0 &lt; 0.5 &lt; 1 et $\lim\limits_{n -&gt; +\infty}(0,5^n) = 0$</p>
+<p>$\lim\limits_{n -&gt; +\infty}(1+5 \times 0,95^n) = 1 + 5 \times 0 * 1$ car 0 &lt; 0.95 &lt; 1 et $\lim\limits_{n -&gt; +\infty}(5 \times 0,95^n) = 0$</p>
+<p>Donc on obtient: $\lim\limits_{n -&gt; +\infty}(u_n) = -\cfrac 3 1 = -3$</p>
+<h3>7) comparaison de limites:</h3>
+<p>Résultat:</p>
+<p>Soit $u_n$ et $v_n$ telles que: $\lim\limits_{n -&gt; +\infty}(u_n) = l$,  $\lim\limits_{n -&gt; +\infty}(v_n) = l'$.</p>
+<p>à partir d'un certain rang, $u_n \leq v_n$</p>
+<p>On a alors: $l \leq l'$</p>
+<h3>8) Application:</h3>
+<p>Soit $u_n$ définie par $x = \begin{cases} u_0 = 6 \ \forall n \in \N, u_{n+1} = 0,2u_n - 3\end{cases}$</p>
+<ol>
+<li>Démontrer que $u_n$ est décroissante.</li>
+<li>Démontrer que $u_n$ est minorée par -4.</li>
+<li></li>
+</ol>
+<p>a) Que peut on dire alors de la suite $u_n$ ?
+b) En utilisant la relation de récurrence, indiquer la valeur de la limite de $u_n$</p>
+<ol>
+<li>On utilise le raisonement par récurence:
+Soit $n \in \N$, $P(n) = &quot;u_n  \geq u_{n+1}$</li>
+</ol>
+<ul>
+<li>
+<p>Initialisation:
+$u_1 = 0,2 * 6 - 3 = 1,2 -3 =-1,8, u_1 = 1,8$, On a $u_0 \geq u_1$</p>
+</li>
+<li>
+<p>Hérédité: Soit n \in \N,
+HR: $u_n \geq u_{n+1}$, CCL: $u_{n+1} \geq u_{n+2}$</p>
+</li>
+</ul>
+<p>Preuve:
+$u_n \geq u_{n+1} \Rightarrow 0,2 * u_n \geq 0,2* u_{n+1} \Rightarrow 0,2 * u_n -3 \geq 0,2 * u_{n+1}-3 \Rightarrow u_{n+1} \geq u_{n+2}$</p>
+<p>Initialisation et Hérédité indiquent que u_n est décroissante.</p>
+<ol start="2">
+<li>On utilise le raisonement par récurence:
+Soit $n \in \N$, $P(n) = &quot;-4 \leq u_n&quot;$</li>
+</ol>
+<p>Initialisation: car u_0=6
+Hérédité: Soit n \in \N,</p>
+<p>$-4 \leq u_n$
+$\Rightarrow -4*0,2 \leq 0,2 * u_n$
+$\Rightarrow -0,8 - 3 \leq 0,2 * u_n -3$
+$\Rightarrow -3,8 \leq u_{n+1}$
+$\Rightarrow -4 \leq u_{n+1}-3$</p>
+<p>Selon le principe de la récurence, -4 est le minorant de u_n.</p>
+<p>3a) La suite $u_n$ est décroissante, et minorée par -4.</p>
+<p>D'apres le thépreme de la convergence, m montre elle est convergente</p>
+<p>b) On note $l = \lim\limits_{n -&gt; +\infty}(u_n)$</p>
+<p>On a par opération
+$\lim\limits_{n -&gt; +\infty}(0,2u_n-3) = 0,2l-3$</p>
+<p>et $\lim\limits_{n -&gt; +\infty}(u_{n+1}) = l$</p>
+<p>Puis de u_n+1 = 0,2u_n -3</p>
+<p>l = 0,2l-3 \Leftrightarrow 0,8l = -3 \Leftrightarrow l = -3,75</p>
+<p>Bilan: $\lim\limits_{n -&gt; +\infty}(u_n) = -3,75$</p>
+<p><strong>Applications : Cours</strong></p>
+<p>ABCD est un tétraèdre.
+$\overrightarrow{AR} = \cfrac 4 5 \overrightarrow{AC}; \overrightarrow{AS} = \cfrac 2 3\vec{AD}; \vec{BT} = \cfrac 1 3 \overrightarrow{BD}$</p>
+<h3>1) Construtction</h3>
+<p>[Fig 1]</p>
+<h3>2) Étudier l'intersection des 2 plans $(BCD)$ et $(RST)$.</h3>
+<p>a) on peut dire les plans $(BCD)$ et $(RST)$ sont différents, en effet $S ∉ (BCD)$ puisque $S ∈ [AD]$</p>
+<p>b) Justifier que $T ∈ (BCD) ∩ (RST)$.</p>
+<ul>
+<li>$T ∈ (BCD)$ car $T ∈ (BD)$ et $T ∈ (RST)$</li>
+</ul>
+<p>c) On déduit que $(BCD) ∩ (RST)$ est une doite, passant par $T$.</p>
+<p>d) Il faut construire un 2^e^ point de cette droite.
+Comment ?
+<strong>Les droites $(ST)$ et $(AB)$ sont coplanaires: contenues dans le plan $(ABD)$.</strong>
+Or les droites $(ST)$ et $(AB)$ sont sécantes car $\overrightarrow{AS} = \cfrac 2 3 \overrightarrow{AD}$ et $\overrightarrow{BT} = \cfrac 1 3 \overrightarrow{BD}$ avec $\cfrac 1 3 ≠ \cfrac 2 3$</p>
+<p>On note $K$ le pont d'intersection des droites $(AB)$ et $(ST)$.
+Puis on note $L$ le point d'intersection des droites $(BC)$ et $(KR)$.</p>
+<ul>
+<li>En effet $L ∈ (BC)$ donc $L ∈ (BCD)$</li>
+<li>Puis $L ∈ (KR)$</li>
+</ul>
+<p>En effet $K ∈ (ST)$ donc $K ∈ (RST)$
+puis $R ∈ (RST)$ et $R ∈ (RST)$
+donc $(KR) \subset (RST)$
+donc $L ∈ (RST)$</p>
+<p><strong>BILAN: $\boxed{(BCD) ∩ (RST) = (TL)}$</strong></p>
+<h4>$\boxed{\text{N°1}:}$</h4>
+<p>$ABCDEFGH$ est un parallépipère rectangle (pavé droit).
+$I ∈ [AE]$ et $J ∈ [HD]$.
+Comme indiqué sur la figure ci-dessous.</p>
+<p>[Fig 2]</p>
+<p><strong>Question</strong>: Déterminer l'intersection des plants $(IJK)$ et $(DCG)$.</p>
+<ol>
+<li>Dire pourquoi $J ∈ (DCG)$</li>
+<li>Déduire que $J ∈ (IJP) ∩ (ABF)$</li>
+<li>Déduire $(IJF) ∩ (ABF)$</li>
+<li>a) Que dire des plans $(ABF)$ et $(DCG)$?
+b) Conclure sur $(IJF) ∩ (DCG)$ par application d'une propriété.</li>
+</ol>
+<p><strong>(1)</strong> $H ∈ (DCG)$ <strong>donc</strong> $(HD) \subset (DCG)$
+<strong>donc</strong> $J ∈ (DCG)$</p>
+<p><strong>(2)</strong> $J ∈ (IJF)$ et d'après (1) $J ∈ (DCG)$
+<strong>donc</strong> $J ∈ (IJF) ∩ (DCG)$</p>
+<p><strong>(3)</strong> $(IJF) ∩ (ABF) = (IF)$</p>
+<p><strong>(4)</strong>  a) Les plans $(ABF)$ et $(DCG)$ sont parallèles
+<strong>CAR</strong> Les deux droites sécantes $(AB)$ et $(BF)$ du plan $(ABF)$ sont respectivement parallèles aux deux droites sécantes $(DC)$ et $(CG)$ du plan $(DCG)$.</p>
+<p>b) Par propriété: si deux plants sont parallèles, tout plant qui coupe l'un, coupe l'autre et donc 2 droites d'interesection sont parallèles.
+On déduire que la droite d'intersection de $(IJF)$ et $(DCG)$ est parallèle à $(d)$.
+De plus cette droite passe par le point J.</p>
+<p><strong>Bilan:</strong> $(IJF) ∩ (DCG) = (Δ),$
+$J ∈ (Δ)$ et $(Δ) \parallel (d)$</p>
+<h2>III) Limites infinies</h2>
+<h3>1) Définitions</h3>
+<h4>a) Voisinnages</h4>
+<ul>
+<li>Un voisinnage de $+\infty$ est un intervalle du type: $]A; +∞[, 0&lt;A$</li>
+<li>Un voisinnage de $-\infty$ est un intervalle du type: $]-∞; B[, B&lt;0$</li>
+</ul>
+<h4>b) Limites infinies</h4>
+<p>$(u_n)$ est une suite de nombres réels</p>
+<ul>
+<li>$\lim\limits_{n → +∞}u_n = \boxed{+∞}$</li>
+</ul>
+<p>&quot;intuitive&quot;: tout voisinnage de $+\infty$, contient tous les termes de la suite à partir d'un certain rang.</p>
+<p><strong>mathématique</strong>: $\forall A ∈ ℝ, 0&lt;A$, il existe $n_0 ∈ ℕ$ tel que pour $n ∈ ℕ$, tel que $n_0 ≤ n$, on a $u_n ∈ ]A; +∞[$.
+→ $\lim\limits_{n → +∞}u_n = \boxed{-∞}$</p>
+<p>&quot;intuitive&quot;: tout voisinnage de $-\infty$, contient tous les termes de la suite à partir d'un certain rang.</p>
+<p><strong>mathématique</strong>: $\forall B ∈ ℝ, B &lt; 0$, il existe $n_0 ∈ ℕ$ tel que pour $n ∈ ℕ$, tel que $n_0 ≤ n$, on a $u_n ∈ ]-∞; B[$.</p>
+<p><em>Remarque:</em> l'entier $n_0$ dépend du choix de $A$ ou de $B$.</p>
+<h4>c) exemples: Soit $u_n$ telle que:</h4>
+<p>pour $n ∈ ℕ, u_n = an + b, a ≠ 0$</p>
+<ul>
+<li>pour $a &gt; 0: \lim u_n = +∞$</li>
+<li>pour $a &lt; 0: \lim u_n = -∞$</li>
+</ul>
+<p><strong>Preuves:</strong> fiche d'exercices</p>
+<h3>2) Théorème de comparaison.</h3>
+<h4>a) énoncés</h4>
+<hr>
+<blockquote>
+<p>Soit $(u_n), (v_n)$ deux suites telles que:</p>
+<ul>
+<li><strong>(1)</strong> $\forall n ∈ ℕ, u_n ≤ v_n$.</li>
+</ul>
+<p>On a:</p>
+<ul>
+<li><strong>(2)</strong> si $\lim u_n = +∞$ alors $\lim v_n = +∞$</li>
+<li><strong>(3)</strong> si $\lim u_n = -∞$ alors $\lim v_n = -∞$</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong>PREUVES:</strong> en exercices</p>
+<h4>b) exemples</h4>
+<p><strong>N°1</strong> Soit $p ∈ ℕ, 2 ≤ p$, on a $∀n ∈ ℕ, n ≤ n^p$
+<strong>on a</strong> $\boxed{\lim n = +∞}$, d'après le théorème de comparaison précédent; enoncé (2)
+on déduit que $\boxed{\lim n^p = + ∞}$</p>
+<p><strong>N°2</strong>: $q ∈ ℝ,$ tel que $1 &lt; q$ et $u_n = q^n$
+on a $\boxed{\lim (q^n) = + ∞}$</p>
+<p>on a démontré: cf chapitre 1
+pour $a &gt; 0$, $∀ n ∈ ℕ, (1+a)^n ≥ 1 + na$
+on utilise $q = 1 + \underbrace{(q-1)}_{a}$</p>
+<p>D'après le l'inégalité précédente: $\forall n ∈ ℕ, \big(1+(q-1)\big)^n ≤ 1+n(q-1)$
+<strong>donc:</strong> $\boxed{q^n ≥ 1 + n(q-1)}$</p>
+<p>De plus $0 &lt; q-1,$ on a $\lim \big( 1+n(q-1)\big) = + ∞$
+Pr théorème de comparaison $\boxed{\lim q^n = + ∞ }$</p>
+<blockquote>
+<p>$\lim 4^n = + ∞ , 1&lt;q$
+$\lim 0.5^n = + ∞ , 0&lt;q&lt;1$</p>
+</blockquote>
+<h3>3) Propriétés:</h3>
+<hr>
+<blockquote>
+<ul>
+<li>Soit $(u_n)$ une suite croissante qui n'est pas majorée.
+ON A $\lim u_n = + ∞$</li>
+<li>Soit $(u_n)$ une suite décroissante qui n'est pas minorée.
+ON A $\lim u_n = - ∞$</li>
+</ul>
+</blockquote>
+<hr>
+<p>Preuves: exercices</p>
+<h3>4) BILAN</h3>
+<p>$(u_n)$ de terme général.</p>
+<p>$\sqrt n, n, n^2, n^3, \cdots, q^n, 1&lt;q$</p>
+<p>toutes ces suites ont pour limite $+\infty$</p>
+<h1>Chap 4꞉ LIMITES de SUITES꞉ APPLICATIONS (PARTIE 4)</h1>
+<h2>IV) LES OPÉRATIONS SUR LES LIMITES</h2>
+<h3>1) Les différents tableaux:</h3>
+<h4>a) Sommes et produits</h4>
+<p><strong>TABLEAU N°1</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\lim u_n = ...$</td>
+<td>$l$</td>
+<td>$l$</td>
+<td>$l$</td>
+<td>$+ ∞$</td>
+<td>$- ∞$</td>
+<td>$+ ∞$</td>
+</tr>
+<tr>
+<td>$\lim v_n = ...$</td>
+<td>$l'$</td>
+<td>$+\infty$</td>
+<td>$-\infty$</td>
+<td>$+\infty$</td>
+<td>$-\infty$</td>
+<td>$-\infty$</td>
+</tr>
+<tr>
+<td>$\lim (u_n + v_n) = ...$</td>
+<td>$l+l'$</td>
+<td>$+\infty$</td>
+<td>$-\infty$</td>
+<td>$+\infty$</td>
+<td>$-\infty$</td>
+<td>$\color{red}\text{F.I.}$</td>
+</tr>
+</tbody>
+</table>
+<p><em>F.I. signifie &quot;forme indéterminée&quot;.</em></p>
+<p><strong>exemple 1)</strong> $u_n = 2n$ et $v_n = -n$: on a $\lim u_n = + ∞$ et $\lim v_n = - ∞$
+on calcule $u_n + v_n = n$ et $\lim (u_n + v_n) = \lim n = +\infty$</p>
+<p><strong>2)</strong> $u_n = 2n$ et $v_n = -4n$ on a $\lim u_n = +∞$ et $\lim v_n = -∞$
+on calcule $u_n + v_n = -2n$ et $\lim(u_n + v_n) = \lim(-2n) = -∞$</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\lim u_n = ...$</td>
+<td>$0&lt;l ou +\oo$</td>
+<td>$l&lt;0 ou -\oo$</td>
+<td>$0&lt;l ou +\oo$</td>
+<td>$l&lt;0 ou -\oo$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>$\lim v_n = ...$</td>
+<td>$0^+$</td>
+<td>$0^+$</td>
+<td>$0^-$</td>
+<td>$0^-$</td>
+<td>$0$</td>
+</tr>
+<tr>
+<td>$\lim (\frac{u_n} {v_n}) = ...$</td>
+<td>$+\oo$</td>
+<td>$-\infty$</td>
+<td>$-\infty$</td>
+<td>$+\infty$</td>
+<td>$\color{red}\text{F.I.}$</td>
+</tr>
+</tbody>
+</table>
+<p>4 cas de formes indéterminée:</p>
+<p>$+\oo + -\oo$</p>
+<p>$0\times+\oo$</p>
+<p>$\f {+\oo} {+\oo}$</p>
+<p>$\f 0 0$</p>
+<h3>2) Exempkles</h3>
+<h4>a)</h4>
+<p>$u_n = 6n^2+n / 2n^3 + 3n^2 + 5$    étude de lim $u_n$</p>
+<p>$lim(6n^2+n) = +\oo$    car $lim(6n^2) = lim(n) = +\oo$ par somme</p>
+<p>et</p>
+<p>$lim(2n^3 + 3n^2 + 5) = +\oo$ par somme</p>
+<p>C'est une forme inderterminée du type $&quot;+\oo/+\oo&quot;$ par quotient</p>
+<p>On écrit autrement un</p>
+<p>$$
+u_n = \f{n^2(6n^2/n^2 + n/n^2)}{n^3 (2n^3/n^3 + 3n^2/n^3 + 5/n^3)} \
+u_n = \f{n^2(6 + 1/n)}{n^3 (2 + 3/n + 5/n^3)}\
+u_n = \f{n^2}{n^3} \f{6+1/n}{2 + 3/n + 5/n^3} = 1/n \times \f{6+1/n}{2+3/n+5/n^3}\
+$$
+$lim(1/n) et lim(\f{6+1/n}{2+3/n+5/n^3}) = 6/2 = 3$ par quotient</p>
+<p>par produit: $lim(u_n) = 0 \times 3 = 0$</p>
+<p>On peut dire que (u_n) est convergente vers 0</p>
+<p>Remarque: on peut aussi apliquer en cas d'oublis $lim u_n = lim \f{6n^2}{2n^3} = lim{3}{n} = 0$</p>
+<p>Méthode: lorsque $u_n = \f{P(n)}{Q(n)}$ ou P et Q sont 2 polynomes on factorise P(n) et Q(n) pour le terme de plus haut degré</p>
+<p>N°3: $u_n = 0,8^n(3+(-1)^n)$</p>
+<p>Analyse: Porduit</p>
+<p>$lim 0,8^n = 0$
+$lim 3+(-1)^n =$ Pas de limite car -1^n = -1 quand n est impair ou 1 quand n est pair</p>
+<p>pour $n \in \mathbb{N}$</p>
+<p>$-1 \leq (-1)^n \leq 1$
+$\longrightarrow 2 \leq 3+(-1)^n \leq 4$
+$\longrightarrow 2 \times 0,8^n \leq u_n \leq 4\times0,8^n$    car 0&lt; 0,8^n</p>
+<p>Peut on calculer mim u_n?</p>
+<p>$lim(2\times0,8^n) = 2\times0 = 0$ et lim(4\times0,8^n) = 4\times0 = 0$</p>
+<p>Par théorème d'encadrement, on a $\lim(u_n) = 0$</p>
+<p>N°5:</p>
+<p>$$\begin{cases}
+u(0) = 0,4\
+pour~n \in \mathbb{N}, u_{n+1} = u_n-u_n^2\
+\end{cases}$$</p>
+<p>Rapel: send de varation de $(u_n): u_{n+1} - u_n = u_n - u_n^2 - u_n = -u_n^2$ or $-u_n^2 \leq 0$</p>
+<p>ainsi: $u_{n+1} - u_n \leq 0$ Donc (u_n) est décroissante.</p>
+<ul>
+<li>$\forall n \in \N, 0 \leq u_n \leq \f 1 2$</li>
+</ul>
+<p>on pose $f(x) = x - x^2$</p>
+<p>on donne le tableau de varation de $f$ sur $[0,\f 1 2]$</p>
+<ul>
+<li>$f'(x) = 1 - 2x$</li>
+<li>Dédution: $\forall x \in [0,\f 1 2], 0 \leq f'(x) \leq \f 1 4$</li>
+</ul>
+<pre><code class="language-tableau">x    | 0                1/2
+---------------------------
+f'(x)|          +        0  |  a=-2
+f(x) |0         ↗       1/4
+</code></pre>
+<p>Ayant introduit f: u_{n+1} = f(u_n)</p>
+<p>On utilise le raisonement par récurrence pour prouver:</p>
+<p>$\forall n\in  \N, P(n) = &quot;0 \leq u_0 \leq \f 1 2&quot;$</p>
+<p>Hérédité: Soit n \in \N
+HR: $0 \leq u_n \leq \f 1 2$
+CCL: $0 \leq u_{n+1} \leq \f 1 2$</p>
+<p>Preuve:</p>
+<p>$0 \leq u_0 \leq \f 1 2 \Rightarrow f(0) \leq f(u_n) \leq f(\f 1 2)$
+$\Rightarrow 0 \leq u_{n+1} \leq 1/4 \leq 1/2$</p>
+<ol>
+<li>est déroissante et minorée par 0, elle est donc convergente par le théorème de la convergence monotone</li>
+</ol>
+<p>on note $lim u_n = l$</p>
+<ol start="2">
+<li>Calculez $l$</li>
+</ol>
+<p>On utilise la relation de recurrence:
+$u_{n+1} = u_n - u_n^2$</p>
+<p>$lim(u_n - u_n^2) = ?$</p>
+<p>$lim(u_n^2) = lim(u_n \times u_n) = l \times l = l^2$ par produit
+puis lim(u_n - u_n^2) = l-l^2$ par difference</p>
+<p>lim(un+1) = lim(un) = l</p>
+<p>lim(un+1) = lim(un-u_n^2), par passage à limite sur la relation de récurence donc l=l-l^2 \Leftrightarrow 0 = -l^2 \Leftrightarrow 0 = l</p>
+<p>Bilan: (u_n) est convergente vers 0</p>
+<p>$$\begin{cases}
+b(0) = 1\
+pour~n \in \mathbb{N}, b_{n+1} = \frac 1 3 b_n + n-2
+\end{cases}$$</p>

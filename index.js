@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-const { argv } = require('process');
+// const { argv } = require('process');
 const fs = require('fs')
 
-function parse(file){
-    fs.readFileSync(file, 'utf-8').split(/\r?\n/).forEach(function(line){
-        console.log(line);
-        
-    });
-}
+var MarkdownIt = require('markdown-it'), md = new MarkdownIt();
+function parse(file, tofile){
+    fs.writeFileSync(tofile ,"<script src=\"https:\/\/cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML\"></script>" +  md.render(fs.readFileSync(file, 'utf-8')));
 
-parse("README.md")
+}
+parse("cours2.md", "cours.html")
